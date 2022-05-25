@@ -1,0 +1,10 @@
+package.json 파일에 script 추가하여 스크립트 명령문으로 간단히 실행할 수 있음
+node_modules 디렉토리는 git에 저장하지 않음.
+package.json 파일이 있으면 > npm install 했을 때 json 파일에 명시된 dependencies 모두 설치하고 node_modules 디렉토리 생김
+package.json 파일의 버전은 정확히 말하면 range임. 보다 상세한 정보는 package-lock.json 파일에 명시되어 있음
+package-lock.json : 좀 더 명확한 버전 설치를 위해 있음.
+
+dependencies 표기법
+1. 캐럿(^) : 모듈이 업데이트되면 이상의 버전을 허용은 하나 메이저 버전이 바뀌는 것은 허용하지 않겠다
+2. 물결(~) : 맨 뒤의 버전이 업데이터 되면 업데이트 해달라
+3. 엑스(x) : 상관없음
