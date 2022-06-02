@@ -7,5 +7,6 @@ const ctrl = require("./home.ctrl"); // 컨트롤러에서 불러옴
 
 router.get("/", ctrl.home);
 router.get("/login", ctrl.login);
+router.post("/login", ctrl.login);
 
 module.exports = router; // 외부파일에서 사용할 수 있도록 웹으로 내보내기

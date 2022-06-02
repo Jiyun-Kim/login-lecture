@@ -9,10 +9,21 @@ console.log(id);
 
 loginBtn.addEventListener("click", login);
 
-
 function login(){
     const req = {
         id: id.value,
-        pwd: pwd.value,
+        pwd: pwd.value
     };
+
+    console.log(req);
+    console.log(JSON.stringify(req));
+    // REST API : ex16
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(req),
+
+    })
 }
