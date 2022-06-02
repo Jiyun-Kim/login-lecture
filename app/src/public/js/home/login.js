@@ -24,6 +24,7 @@ function login(){
             "Content-Type": "application/json"
         },
         body: JSON.stringify(req),
-
     })
+        .then((res) => res.json())
+        .then((res) => console.log(res)); // res.json 값은 promise임. 기본 res 의 반환값은 response 스트림임
 }
