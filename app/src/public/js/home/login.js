@@ -26,5 +26,14 @@ function login(){
         body: JSON.stringify(req),
     })
         .then((res) => res.json())
-        .then((res) => console.log(res)); // res.json 값은 promise임. 기본 res 의 반환값은 response 스트림임
+        .then((res) => {
+            if (res.success) {
+                location.href = "/";
+            } else {
+                alert(res.msg);
+            }
+        }) // res.json 값은 promise임. 기본 res 의 반환값은 response 스트림임
+        .catch((err) => {
+            console.error("로그인 중 에러 발생");
+        });
 }
