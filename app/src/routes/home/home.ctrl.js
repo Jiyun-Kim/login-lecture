@@ -6,9 +6,11 @@ const output = {
     home: (req, res) => { // hello 라는 컨트롤러 함수를 만들고, 이를 외부에서 사용
         res.render("home/index");
     },
-    
     login: (req, res) => {
         res.render("home/login");
+    },
+    register: (req, res) => {
+        res.render("home/register");
     }
 }
 
