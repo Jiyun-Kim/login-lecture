@@ -2,23 +2,24 @@
 
 // DOM : Document Object Model
 const id = document.querySelector("#id"),
-     pwd = document.querySelector("#pwd"),
-     loginBtn = document.querySelector("#button");
+    name = document.querySelector("#name"),
+    pwd = document.querySelector("#pwd"),
+    confirmPwd = document.querySelector("#confirm-pwd"),
+    registerBtn = document.querySelector("#button");
 
-console.log(id);
+registerBtn.addEventListener("click", register);
 
-loginBtn.addEventListener("click", login);
-
-function login(){
+function register(){
     const req = {
         id: id.value,
-        pwd: pwd.value
+        name: name.value,
+        pwd: pwd.value,
+        confirmPwd: confirmPwd.value
     };
 
     console.log(req);
-    console.log(JSON.stringify(req));
-    // REST API : ex16
-    fetch("/login", {
+    
+    fetch("/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -34,6 +35,6 @@ function login(){
             }
         }) // res.json 값은 promise임. 기본 res 의 반환값은 response 스트림임
         .catch((err) => {
-            console.error("로그인 중 에러 발생");
+            console.error("회원가입 중 에러 발생");
         });
 }
