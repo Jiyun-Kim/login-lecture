@@ -10,6 +10,11 @@ const id = document.querySelector("#id"),
 registerBtn.addEventListener("click", register);
 
 function register(){
+    if (!id.value) return alert("아이디를 입력해 주세요.");
+    if (pwd.value !== confirmPwd.value) {
+        return alert("비밀번호가 일치하지 않습니다.");
+    }
+
     const req = {
         id: id.value,
         name: name.value,
@@ -29,7 +34,7 @@ function register(){
         .then((res) => res.json())
         .then((res) => {
             if (res.success) {
-                location.href = "/";
+                location.href = "/login";
             } else {
                 alert(res.msg);
             }
