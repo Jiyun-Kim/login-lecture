@@ -7,12 +7,15 @@
 const express = require("express"); // 모듈 다운
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");   // 환경 변수 설정 모듈, 어떤 os에서 개발하더라도 다 동일하게 환경변수 등록 및 가져오기 가능
-dotenv.config();
+const morgan = require("morgan");
 
 const app = express(); // express 실행
 
+dotenv.config();
+
 // 라우팅
 const home = require("./src/routes/home");
+const accessLogStream = require("./src/config/log");
 
 // 앱 셋팅
 app.set("views", "./src/views");
@@ -24,6 +27,9 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyParser.json());
 // URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
 app.use(bodyParser.urlencoded({extended: true}));
+// log 포멧 지정
+app.use(morgan('dev'));
+app.use(morgan('common', { stream: accessLogStream }));
 app.use("/", home); // use : 미들 웨어를 등록해주는 메서드
 
 module.exports = app;
