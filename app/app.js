@@ -6,6 +6,9 @@
 // 모듈
 const express = require("express"); // 모듈 다운
 const bodyParser = require("body-parser");
+const dotenv = require("dotenv");   // 환경 변수 설정 모듈, 어떤 os에서 개발하더라도 다 동일하게 환경변수 등록 및 가져오기 가능
+dotenv.config();
+
 const app = express(); // express 실행
 
 // 라우팅

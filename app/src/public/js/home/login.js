@@ -15,8 +15,6 @@ function login(){
         pwd: pwd.value
     };
 
-    console.log(req);
-    console.log(JSON.stringify(req));
     // REST API : ex16
     fetch("/login", {
         method: "POST",

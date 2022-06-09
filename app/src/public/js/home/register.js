@@ -22,8 +22,6 @@ function register(){
         confirmPwd: confirmPwd.value
     };
 
-    console.log(req);
-    
     fetch("/register", {
         method: "POST",
         headers: {
