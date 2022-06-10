@@ -15,8 +15,7 @@ class UserStorage {
             const query = "SELECT id, pwd FROM users where id = $1;";
             db.query(query, [id], (err, data) => {
                 if (err) reject(`${err}`);
-                console.log(data.rows[0]);
-                resolve(data.rows[0]);
+                else resolve(data.rows[0]);
             });
         });
     }
@@ -26,7 +25,7 @@ class UserStorage {
             const query = "INSERT INTO users(id, name, pwd) VALUES ($1, $2, $3);";
             db.query(query, [userInfo.id, userInfo.name, userInfo.pwd], (err, data) => {
                 if (err) reject(`${err}`);
-                resolve({ success: true });
+                else resolve({ success: true });
             });
         });
     }

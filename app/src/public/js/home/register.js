@@ -34,6 +34,7 @@ function register(){
             if (res.success) {
                 location.href = "/login";
             } else {
+                if (res.err) return alert(res.err);
                 alert(res.msg);
             }
         }) // res.json 값은 promise임. 기본 res 의 반환값은 response 스트림임
